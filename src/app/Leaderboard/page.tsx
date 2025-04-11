@@ -1,38 +1,6 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { prisma } from "@/lib/prisma";
-import { redirect } from "next/navigation";
 
-export default async function Leaderboard({ searchParams }: any) {
-  const password = searchParams?.pw;
-  const correctPassword = process.env.XPLORICAPW;
-
-  if (password !== correctPassword) {
-    return (
-      <main className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-white to-gray-100 text-black px-4">
-        <div className="bg-white p-8 rounded-3xl shadow-xl w-full max-w-md space-y-4">
-          <h2 className="text-3xl font-bold text-center text-blue-700">
-            Enter Password
-          </h2>
-          <form method="GET" className="flex flex-col space-y-4">
-            <input
-              type="password"
-              name="pw"
-              className="p-3 rounded-xl border border-gray-300 w-full focus:outline-none focus:ring-2 focus:ring-blue-400"
-              placeholder="Enter password"
-            />
-            <button
-              type="submit"
-              className="bg-blue-600 text-white px-6 py-3 rounded-xl font-bold hover:bg-blue-700 transition"
-            >
-              ✅ Submit
-            </button>
-          </form>
-        </div>
-      </main>
-    );
-  }
-
+export default async function LeaderboardPage() {
   const teams = await prisma.scoreEntry.findMany({
     orderBy: { score: "desc" },
   });
