@@ -49,7 +49,7 @@ export default async function LeaderboardPage() {
           </table>
         </div>
       </div>
-      <div className="flex justify-end mb-4">
+      <div className="flex justify-end m-4 p-2">
         <DeleteButton />
       </div>
     </main>
