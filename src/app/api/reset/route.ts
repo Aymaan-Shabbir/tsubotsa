@@ -6,6 +6,10 @@ export async function DELETE() {
 
     return Response.json({ message: "All entries deleted" });
   } catch (error) {
-    return Response.json({ error: "Failed" }, { status: 500 });
+    console.error(error);
+    return Response.json(
+      { message: "Failed to delete entries" },
+      { status: 500 },
+    );
   }
 }
