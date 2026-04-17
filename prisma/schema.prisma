@@ -4,6 +4,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 model ScoreEntry {
@@ -17,5 +18,3 @@ model ScoreEntry {
   score          Int
   createdAt      DateTime @default(now())
 }
-
-
