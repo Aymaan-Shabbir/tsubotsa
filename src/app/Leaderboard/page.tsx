@@ -1,7 +1,7 @@
 export const dynamic = "force-dynamic";
 
 import { prisma } from "@/lib/prisma";
-
+import DeleteButton from "../components/DeleteButton";
 export default async function LeaderboardPage() {
   const teams = await prisma.scoreEntry.findMany({
     orderBy: { score: "desc" },
@@ -48,6 +48,9 @@ export default async function LeaderboardPage() {
             </tbody>
           </table>
         </div>
+      </div>
+      <div className="flex justify-end mb-4">
+        <DeleteButton />
       </div>
     </main>
   );

@@ -28,13 +28,15 @@ export async function POST(req: Request) {
 
     return NextResponse.json(
       { success: true, data: newScore },
-      { status: 200 }
+      { status: 200 },
     );
     // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (error) {
     return NextResponse.json(
       { error: "Failed to create score entry" },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
+// /app/api/reset/route.js (Next.js 13+)
+
